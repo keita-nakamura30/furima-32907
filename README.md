@@ -16,7 +16,7 @@
 
 ### Association
 - has_many :items　
-- has_many :purchasebox
+- has_many :purchaseboxs
 
 ## items テーブル
 
@@ -33,8 +33,8 @@
 | user             |references | null: false |
 
 ### Association
-belongs_to :user
-has_one    :sold_out
+- belongs_to :user 
+- has_one    :sold_out
 ## purchaseboxs テーブル
 
 | Column        | Type       | Options|
@@ -60,6 +60,6 @@ has_one    :sold_out
 
 ### Association
 
--belongs_to :user
--belongs_to :item
--has_one    :purchasebox
+- belongs_to :user
+- belongs_to :item
+- has_one    :purchasebox

@@ -3,9 +3,10 @@
 
 ## users テーブル
 
-| Column   　　　　　　　　| Type   | Options     |
-| --------　　　　　 　　　| ------ | ----------- |
-| nicname 　　　　　　　　　| string | null: false |
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| nicname          | string | null: false |
+
 | email　　　　　　　　　　　| string | null: false 　unique:true|
 | encrypted_password　　　| string | null: false |
 | name_firstname　　　　　| string | null: false |
@@ -48,8 +49,7 @@ has_one    :sold_out
 | sold_out       |references | null: false |
 ### Association
 
--belongs_to :sold_out
-
+- belongs_to :sold_out
 
 
 ## sold_outs テーブル

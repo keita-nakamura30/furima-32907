@@ -3,17 +3,16 @@
 
 ## users テーブル
 
-| Column           | Type   | Options     |
-| ---------------- | ------ | ----------- |
-| nicname          | string | null: false |
-
-| email　　　　　　　　　　　| string | null: false 　unique:true|
-| encrypted_password　　　| string | null: false |
-| name_firstname　　　　　| string | null: false |
-| name_lastname　　　　    | string | null: false |
-| name_firstname_kana　　| string | null: false  |   
-| name_lastname_kana     | string | null: false  |
-| birth_day　　　　　　　 　| date| null: false |
+| Column              | Type   | Options     |
+| ------------------  | ------ | ----------- |
+| nicname             | string | null: false |
+| email               | string | null: false 　unique:true|
+| encrypted_password  | string | null: false |
+| name_firstname      | string | null: false |
+| name_lastname       | string | null: false |
+| name_firstname_kana | string | null: false  |   
+| name_lastname_kana  | string | null: false  |
+| birth_day           | date| null: false |
 
 ### Association
 - has_many :items　
@@ -21,17 +20,17 @@
 
 ## items テーブル
 
-| Column　　　　 　  | Type   | Options    |
-| ------　　　　    | ------ | -----------|
-| item_name　　　   | string | null: false|
+| Column           | Type   | Options    |
+| ---------------- | -----------|
+| item_name        | string | null: false|
 | item_info        | text   | null: false|
-| category_id　　　　| integer | null: false|
-| sales_status_id　| integer| null: false|
-| delivery_fee_id　| integer | null: false|
-| prefecture_id　　  | integer | null: false|
-| delivery_date_id　| integer | null: false|
-| price  　　　　　　 | integer | null: false|
-| user          |references | null: false |
+| category_id      | integer | null: false|
+| sales_status_id  | integer| null: false|
+| delivery_fee_id  | integer | null: false|
+| prefecture_id    | integer | null: false|
+| delivery_date_id | integer | null: false|
+| price            | integer | null: false|
+| user             |references | null: false |
 
 ### Association
 belongs_to :user

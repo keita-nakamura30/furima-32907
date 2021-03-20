@@ -24,7 +24,7 @@
 | Column　　　　 　  | Type   | Options    |
 | ------　　　　    | ------ | -----------|
 | item_name　　　   | string | null: false|
-| item_info_id     | string | null: false|
+| item_info        | string | null: false|
 | category_id　　　　| integer | null: false|
 | sales_status_id　| integer| null: false|
 | delivery_fee_id　| integer | null: false|
@@ -53,7 +53,7 @@ has_one    :sold_out
 
 
 
-## sold-outs テーブル
+## sold_outs テーブル
 
 | Column  | Type       | Options |
 | ------- | ---------- | -------|

@@ -1,43 +1,24 @@
-<!-- アソシエーションを書くこと・ER図で書かれているカラムを全て網羅すること -->
-# テーブル設計
+# README
 
-## users テーブル
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Column   　　　　　　　　| Type   | Options     |
-| --------　　　　　 　　　| ------ | ----------- |
-| nicname 　　　　　　　　　| string | null: false |
-| email　　　　　　　　　　　| string | null: false |
-| password　　　　　　　　　| string | null: false |
-| encrypted_password　　　| string | null: false |
-| name_fullwidth　　　　　| string | null: false |
-| name_kana　　　　　　　　| string | null: false |
-| birth_day　　　　　　　　| string | null: false |
+Things you may want to cover:
 
-## items テーブル
+* Ruby version
 
-| Column　　　　 　  | Type   | Options    |
-| ------　　　　    | ------ | -----------|
-| item_name　　　   | string | null: false|
-| category　　　　 　| string | null: false|
-| sales_status　　　| string | null: false|
-| delivery_fee　　　| string | null: false|
-| prefecture　　 　 | string | null: false|
-| delivery_date　　 | string | null: false|
-| price  　　　　　　| string | null: false|
+* System dependencies
 
-## purchasebox テーブル
+* Configuration
 
-| Column        | Type       | Options|
-| ------        | ---------- | -------|
-| postal_code   |string | null: false |
-||prefecture    |string | null: false |
-|city           |string | null: false |
-|address        |string | null: false |
-|building       |string | null: false |
-|tel_number     |string | null: false |
-## sold-out テーブル
+* Database creation
 
-| Column  | Type       | Options |
-| ------- | ---------- | -------|
-| item_id |string | null: false |
-| user_id |string | null: false |
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

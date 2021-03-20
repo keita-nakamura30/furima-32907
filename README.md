@@ -15,14 +15,16 @@
 | birth_day　　　　　　　 　| date| null: false |
 
 ### Association
-- has_many :items
-- has_one :sold_out
+- has_many :items　
+　has_many :items
+- has_one :purchasebox
 
 ## items テーブル
 
 | Column　　　　 　  | Type   | Options    |
 | ------　　　　    | ------ | -----------|
 | item_name　　　   | string | null: false|
+| item_info_id     | string | null: false|
 | category_id　　　　| integer | null: false|
 | sales_status_id　| integer| null: false|
 | delivery_fee_id　| integer | null: false|
@@ -34,7 +36,7 @@
 ### Association
 belongs_to :user
 has_one    :sold_out
-## purchasebox テーブル
+## purchaseboxs テーブル
 
 | Column        | Type       | Options|
 | ------        | ---------- | -------|
@@ -51,7 +53,7 @@ has_one    :sold_out
 
 
 
-## sold-out テーブル
+## sold-outs テーブル
 
 | Column  | Type       | Options |
 | ------- | ---------- | -------|

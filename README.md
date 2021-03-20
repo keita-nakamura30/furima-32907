@@ -34,7 +34,7 @@
 ### Association
 belongs_to :user
 has_one    :sold_out
-## purchasebox_id テーブル
+## purchasebox テーブル
 
 | Column        | Type       | Options|
 | ------        | ---------- | -------|
@@ -47,7 +47,7 @@ has_one    :sold_out
 |sold_out       |references | null: false |
 ### Association
 
-- belongs_to :sold-out
+- belongs_to :sold_out
 
 
 
@@ -61,4 +61,5 @@ has_one    :sold_out
 ### Association
 
 - belongs_to :user
--belongs_to :user
+-belongs_to :item
+ has_one    :purchasebox

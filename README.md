@@ -6,17 +6,17 @@
 | Column   　　　　　　　　| Type   | Options     |
 | --------　　　　　 　　　| ------ | ----------- |
 | nicname 　　　　　　　　　| string | null: false |
-| email　　　　　　　　　　　| string | null: false |
+| email　　　　　　　　　　　| string | null: false 　unique:true|
 | encrypted_password　　　| string | null: false |
 | name_firstname　　　　　| string | null: false |
 |name_lastname　　　　    | string | null: false |
 | name_firstname_kana　　| string | null: false  |   
-| name_lastname_kana
-| birth_day　　　　　　　　| data| null: false |
+| name_lastname_kana     | string | null: false  |
+| birth_day　　　　　　　 　| date| null: false |
 
 ### Association
-- has_many :room_users
- has_many :rooms, through: item_users
+- has_many :items
+- has_one :sold_out
 
 ## items テーブル
 
@@ -29,12 +29,12 @@
 | prefecture_id　　  | integer | null: false|
 | delivery_date_id　| integer | null: false|
 | price  　　　　　　 | integer | null: false|
+|user          |references | null: false |
 
 ### Association
-has_many :item_users
-- has_many :users, through: item_users
-
-## purchasebox テーブル
+belongs_to :user
+has_one    :sold_out
+## purchasebox_id テーブル
 
 | Column        | Type       | Options|
 | ------        | ---------- | -------|
@@ -42,23 +42,23 @@ has_many :item_users
 ||prefecture_id  |integer| null: false |
 |city           |string | null: false |
 |address        |string | null: false |
-|building       |string | null: false |
+|building       |string | 
 |tel_number     |string | null: false |
-
+|sold_out       |references | null: false |
 ### Association
 
-- belongs_to :purchasebox
-- belongs_to :user
+- belongs_to :sold-out
+
 
 
 ## sold-out テーブル
 
 | Column  | Type       | Options |
 | ------- | ---------- | -------|
-| item_id |integer | null: false |
-| user_id |integer | null: false |
+| item |references | null: false |
+| user |references | null: false |
 
 ### Association
 
-- belongs_to :sold-out
 - belongs_to :user
+-belongs_to :user

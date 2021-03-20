@@ -16,7 +16,7 @@
 
 ### Association
 - has_many :items　
-- has_many :purchaseboxs
+- has_many :sold_outs
 
 ## items テーブル
 

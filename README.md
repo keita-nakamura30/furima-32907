@@ -3,41 +3,63 @@
 
 ## users テーブル
 
-| Column   　　　　　　　　| Type   | Options     |
-| --------　　　　　 　　　| ------ | ----------- |
-| nicname 　　　　　　　　　| string | null: false |
-| email　　　　　　　　　　　| string | null: false |
-| password　　　　　　　　　| string | null: false |
-| encrypted_password　　　| string | null: false |
-| name_fullwidth　　　　　| string | null: false |
-| name_kana　　　　　　　　| string | null: false |
-| birth_day　　　　　　　　| string | null: false |
+| Column              | Type   | Options     |
+| ------------------  | ------ | ----------- |
+| nicname             | string | null: false |
+| email               | string | null: false 　unique:true|
+| encrypted_password  | string | null: false |
+| name_firstname      | string | null: false |
+| name_lastname       | string | null: false |
+| name_firstname_kana | string | null: false  |   
+| name_lastname_kana  | string | null: false  |
+| birth_day           | date| null: false |
+
+### Association
+- has_many :items　
+- has_many :sold_outs
 
 ## items テーブル
 
-| Column　　　　 　  | Type   | Options    |
-| ------　　　　    | ------ | -----------|
-| item_name　　　   | string | null: false|
-| category　　　　 　| string | null: false|
-| sales_status　　　| string | null: false|
-| delivery_fee　　　| string | null: false|
-| prefecture　　 　 | string | null: false|
-| delivery_date　　 | string | null: false|
-| price  　　　　　　| string | null: false|
+| Column           | Type   | Options    |
+| ---------------- | -----------|
+| item_name        | string | null: false|
+| item_info        | text   | null: false|
+| category_id      | integer | null: false|
+| sales_status_id  | integer| null: false|
+| delivery_fee_id  | integer | null: false|
+| prefecture_id    | integer | null: false|
+| delivery_date_id | integer | null: false|
+| price            | integer | null: false|
+| user             |references | null: false |
 
-## purchasebox テーブル
+### Association
+- belongs_to :user 
+- has_one    :sold_out
+## purchaseboxs テーブル
 
 | Column        | Type       | Options|
 | ------        | ---------- | -------|
 | postal_code   |string | null: false |
-||prefecture    |string | null: false |
-|city           |string | null: false |
-|address        |string | null: false |
-|building       |string | null: false |
-|tel_number     |string | null: false |
-## sold-out テーブル
+| prefecture_id  |integer| null: false |
+| city           |string | null: false |
+| address        |string | null: false |
+| building       |string | 
+| tel_number     |string | null: false |
+| sold_out       |references | null: false |
+### Association
+
+- belongs_to :sold_out
+
+
+## sold_outs テーブル
 
 | Column  | Type       | Options |
 | ------- | ---------- | -------|
-| item_id |string | null: false |
-| user_id |string | null: false |
+| item |references | null: false |
+| user |references | null: false |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one    :purchasebox

@@ -6,7 +6,7 @@
 | Column              | Type   | Options     |
 | ------------------  | ------ | ----------- |
 | nicname             | string | null: false |
-| email               | string | null: false 　unique:true|
+| email               | string | null: false :unique:true|
 | encrypted_password  | string | null: false |
 | name_firstname      | string | null: false |
 | name_lastname       | string | null: false |
@@ -15,7 +15,7 @@
 | birth_day           | date| null: false |
 
 ### Association
-- has_many :items　
+- has_many :items
 - has_many :sold_outs
 
 ## items テーブル

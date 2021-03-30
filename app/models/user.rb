@@ -7,7 +7,6 @@ class User < ApplicationRecord
          with_options presence:true do
          validates :birth_day 
          validates :nickname,length: { maximum: 6 }
-         validates :name_lastname_kana
        
 
 

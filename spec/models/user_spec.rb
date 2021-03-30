@@ -29,8 +29,23 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include "Password can't be blank"
     end
+    it 'passwordが６文字以上でないと登録できないこと' do
+      @user.password = '12345'  # passwordの値を空にする
+      @user.valid?
+      expect(@user.errors.full_messages).to include "Password is too short (minimum is 6 characters)"
+    end
     it 'passwordが半角英数混合では無い時登録出来ない' do
-      @user.password = 'あいうえおか'  # passwordの値を空にする
+      @user.password = 'あいうえおか'  
+      @user.valid?
+      expect(@user.errors.full_messages).to include "Password Password Include both letters and numbers"
+    end
+    it 'passwordが英語のみでは登録できないこと' do
+      @user.password = 'ABCD'  # passwordの値を空にする
+      @user.valid?
+      expect(@user.errors.full_messages).to include "Password Password Include both letters and numbers"
+    end
+    it 'passwordが数字のみでは登録できないこと' do
+      @user.password = '1234'  # passwordの値を空にする
       @user.valid?
       expect(@user.errors.full_messages).to include "Password Password Include both letters and numbers"
     end
@@ -53,7 +68,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'name_firstnameが全角漢字ひらがなカタカナでは無い時は登録できない' do
-      @user.name_firstname = 'ｱｲｳｴｵ'  # ここの記述はメンターさんに聞く
+      @user.name_firstname = 'ｱｲｳｴｵ'  
       @user.valid?
       expect(@user.errors.full_messages).to include "Name firstname Full width characters"
     end
